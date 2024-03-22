@@ -6,9 +6,7 @@ import { HelloService } from '../proto/index_grpc_pb';
 const HelloServer = {
     hello: (call: grpc.ServerUnaryCall<HelloRequest, HelloResponse>, callback: sendUnaryData<HelloResponse>): void => {
         const request = call.request;
-        console.log(request);
         const response = new HelloResponse();
-        console.log("Message from client");
         response.setResult("Hello," + request.getName())
         callback(null, response);
     }
