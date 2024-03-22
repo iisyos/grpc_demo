@@ -5,10 +5,10 @@ tasks:
     cmds:
       - task --parallel run-client run-server
   run-client:
-    dir: "./client"
+    dir: "./src/client"
     cmds:
       - npm run dev
   run-server:
-    dir: "./server"
+    dir: "./src/server"
     cmds:
       - npm run dev

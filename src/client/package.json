@@ -12,6 +12,8 @@
     "build": "tsc"
   },
   "dependencies": {
-    "express": "^4.19.1"
+    "@improbable-eng/grpc-web": "^0.15.0",
+    "express": "^4.19.1",
+    "grpc-tools": "^1.12.4"
   }
 }
