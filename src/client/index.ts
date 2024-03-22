@@ -14,37 +14,40 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
     next();
 })
 
-app.listen(3001, () => {
-    console.log("Start on port 3001.")
+app.listen(3000, () => {
+    console.log("Start on port 3000.")
+    console.log("Start on port 3000.")
 })
 
 app.get('/', async(req: express.Request, res: express.Response) => {
-    const client = new HelloClient(
-        `localhost:6543`,
-        grpc.credentials.createInsecure(),
-      );
-    const request = new HelloRequest();
-    request.setName("hoge");
+    console.log("Hello, World!")
+    // const client = new HelloClient(
+    //     `localhost:6543`,
+    //     grpc.credentials.createInsecure(),
+    //   );
+    // const request = new HelloRequest();
+    // request.setName("hoge");
 
-    const promise = new Promise<HelloResponse>((resolve, reject) => {
-        client.hello(request, (err, response) => {
-            if (err) {
-                reject(err);
-            } else {
-                if (response === undefined) {
-                    return reject(new Error('response is undefined'));
-                }
-                resolve(response);
-            }
-        });
-    }
-    );
+    // const promise = new Promise<HelloResponse>((resolve, reject) => {
+    //     // @ts-ignore
+    //     client.hello(request, (err, response) => {
+    //         if (err) {
+    //             reject(err);
+    //         } else {
+    //             if (response === undefined) {
+    //                 return reject(new Error('response is undefined'));
+    //             }
+    //             resolve(response);
+    //         }
+    //     });
+    // }
+    // );
 
-    const result = await promise;
-    console.log(result.getResult());
+    // const result = await promise;
+    // console.log(result.getResult());
     
     res.send(JSON.stringify({
         message: "Hello, World!",
-        result: result.getResult()
+        // result: result.getResult()
     }))
 })
