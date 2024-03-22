@@ -1,0 +1,14 @@
+version: "3"
+
+tasks:
+  run:
+    cmds:
+      - task --parallel run-client run-server
+  run-client:
+    dir: "./client"
+    cmds:
+      - npm run dev
+  run-server:
+    dir: "./server"
+    cmds:
+      - npm run dev
